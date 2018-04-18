@@ -1,0 +1,7 @@
+name: 'Extra fields collection'
+description: 'Extra field plugins collections'
+type: module
+core: 8.x
+package: extra_field
+dependencies:
+  - extra_field

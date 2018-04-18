@@ -1,0 +1,16 @@
+{
+  "name": "drupal/extra_fields_collection",
+  "type": "drupal-module",
+  "description": "Extra field plugins collections",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/extra_fields_collection",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/extra_fields_collection",
+    "source": "http://cgit.drupalcode.org/extra_fields_collection"
+  },
+  "require": {
+    "drupal/extra_field": "^1.0"
+  }
+}
