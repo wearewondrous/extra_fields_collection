@@ -1,5 +1,5 @@
 {
-  "name": "drupal/extra_fields_collection",
+  "name": "WondrousLLC/extra_fields_collection",
   "type": "drupal-module",
   "description": "Extra field plugins collections",
   "keywords": ["Drupal"],
