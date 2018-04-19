@@ -10,7 +10,7 @@ use Drupal\extra_field_plus\Plugin\ExtraFieldPlusDisplayBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Extra field Display for date since.
+ * Extra field Display for view_url.
  *
  * @ExtraFieldDisplay(
  *   id = "view_url",
@@ -73,7 +73,6 @@ class ViewUrl extends ExtraFieldDisplayBase implements ContainerFactoryPluginInt
    * {@inheritdoc}
    */
   public function view(ContentEntityInterface $entity) {
-
     $this->options['absolute'] = (bool) $this->getSetting('absolute');
 
     $elements = [
