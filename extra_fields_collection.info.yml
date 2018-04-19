@@ -5,3 +5,4 @@ core: 8.x
 package: extra_field
 dependencies:
   - extra_field
+  - field_group
