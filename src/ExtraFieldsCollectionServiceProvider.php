@@ -29,9 +29,8 @@ class ExtraFieldsCollectionServiceProvider extends ServiceProviderBase {
     if (isset($modules['comment'])) {
       // Add a normalizer service for dynamic_entity_reference fields.
       $container->register('extra_fields_collection.comment_statistics_lazy_builder', 'Drupal\extra_fields_collection\LazyBulderCommentsStatistics')
-        ->addArgument(new Reference(('entity.manager')))
+        ->addArgument(new Reference(('entity_type.manager')))
         ->addArgument(new Reference(('comment.statistics')));
     }
   }
-
 }

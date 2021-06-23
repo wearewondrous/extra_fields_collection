@@ -15,7 +15,7 @@ class LazyBulderCommentsStatistics {
    *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
-  protected $entityManager;
+  protected $entityTypeManager;
 
   /**
    * Comments statistics service
@@ -29,7 +29,7 @@ class LazyBulderCommentsStatistics {
    */
   public function __construct(EntityTypeManagerInterface $entity_manager, CommentStatisticsInterface $comment_statistics) {
     $this->commentStatistics = $comment_statistics;
-    $this->entityManager = $entity_manager;
+    $this->entityTypeManager = $entity_manager;
   }
 
   /**
@@ -46,7 +46,7 @@ class LazyBulderCommentsStatistics {
    */
   public function getEntityCommentCount($entity_type, $entity_id) {
     $comments_count = 0;
-    $entity = $this->entityManager->getStorage($entity_type)->load($entity_id);
+    $entity = $this->entityTypeManager->getStorage($entity_type)->load($entity_id);
     if ($comments_statistics = $this->commentStatistics->read([$entity->id() => $entity], $entity->getEntityTypeId())) {
       foreach ($comments_statistics as $record) {
         if (isset($record->entity_id) && $record->entity_id == $entity->id()) {
