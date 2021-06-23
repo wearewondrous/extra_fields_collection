@@ -2,7 +2,9 @@
   "name": "wearewondrous/extra_fields_collection",
   "type": "drupal-module",
   "description": "Extra field plugins collections",
-  "keywords": ["Drupal"],
+  "keywords": [
+    "Drupal"
+  ],
   "license": "GPL-2.0+",
   "homepage": "https://www.drupal.org/project/extra_fields_collection",
   "minimum-stability": "dev",
@@ -11,6 +13,6 @@
     "source": "http://cgit.drupalcode.org/extra_fields_collection"
   },
   "require": {
-    "drupal/extra_field": "^1.0"
+    "drupal/extra_field": "^2.1"
   }
 }

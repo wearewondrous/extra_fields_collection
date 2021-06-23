@@ -1,7 +1,8 @@
 <?php
 
 namespace Drupal\extra_fields_collection;
-use Drupal\Core\Entity\EntityManagerInterface;
+
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\comment\CommentStatisticsInterface;
 
 /**
@@ -12,7 +13,7 @@ class LazyBulderCommentsStatistics {
   /**
    * Drupal\statistics\NodeStatisticsDatabaseStorage definition.
    *
-   * @var \Drupal\Core\Entity\EntityManagerInterface
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityManager;
 
@@ -26,7 +27,7 @@ class LazyBulderCommentsStatistics {
   /**
    * Constructs a new LazyBuilders object.
    */
-  public function __construct(EntityManagerInterface $entity_manager, CommentStatisticsInterface $comment_statistics) {
+  public function __construct(EntityTypeManagerInterface $entity_manager, CommentStatisticsInterface $comment_statistics) {
     $this->commentStatistics = $comment_statistics;
     $this->entityManager = $entity_manager;
   }
@@ -58,5 +59,4 @@ class LazyBulderCommentsStatistics {
       '#markup' => $comments_count,
     ];
   }
-
 }
