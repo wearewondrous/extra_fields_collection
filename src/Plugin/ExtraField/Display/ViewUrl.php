@@ -65,7 +65,9 @@ class ViewUrl extends ExtraFieldDisplayBase implements ContainerFactoryPluginInt
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
-      $configuration, $plugin_id, $plugin_definition
+      $configuration,
+      $plugin_id,
+      $plugin_definition
     );
   }
 
@@ -107,7 +109,7 @@ class ViewUrl extends ExtraFieldDisplayBase implements ContainerFactoryPluginInt
 
     if (is_callable('parent::getSetting')) {
       $value = $settings = parent::getSetting($name);
-    }
+    } 
     else {
       $default_settings = $this->defaultFormValues();
       $value = isset($default_settings[$name]) ? $default_settings[$name] : NULL;
@@ -133,5 +135,4 @@ class ViewUrl extends ExtraFieldDisplayBase implements ContainerFactoryPluginInt
 
     return $elements;
   }
-
 }

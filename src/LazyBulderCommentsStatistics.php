@@ -1,7 +1,8 @@
 <?php
 
 namespace Drupal\extra_fields_collection;
-use Drupal\Core\Entity\EntityManagerInterface;
+
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\comment\CommentStatisticsInterface;
 
 /**
@@ -12,9 +13,9 @@ class LazyBulderCommentsStatistics {
   /**
    * Drupal\statistics\NodeStatisticsDatabaseStorage definition.
    *
-   * @var \Drupal\Core\Entity\EntityManagerInterface
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
-  protected $entityManager;
+  protected $entityTypeManager;
 
   /**
    * Comments statistics service
@@ -26,9 +27,9 @@ class LazyBulderCommentsStatistics {
   /**
    * Constructs a new LazyBuilders object.
    */
-  public function __construct(EntityManagerInterface $entity_manager, CommentStatisticsInterface $comment_statistics) {
+  public function __construct(EntityTypeManagerInterface $entity_manager, CommentStatisticsInterface $comment_statistics) {
     $this->commentStatistics = $comment_statistics;
-    $this->entityManager = $entity_manager;
+    $this->entityTypeManager = $entity_manager;
   }
 
   /**
@@ -45,7 +46,7 @@ class LazyBulderCommentsStatistics {
    */
   public function getEntityCommentCount($entity_type, $entity_id) {
     $comments_count = 0;
-    $entity = $this->entityManager->getStorage($entity_type)->load($entity_id);
+    $entity = $this->entityTypeManager->getStorage($entity_type)->load($entity_id);
     if ($comments_statistics = $this->commentStatistics->read([$entity->id() => $entity], $entity->getEntityTypeId())) {
       foreach ($comments_statistics as $record) {
         if (isset($record->entity_id) && $record->entity_id == $entity->id()) {
@@ -58,5 +59,4 @@ class LazyBulderCommentsStatistics {
       '#markup' => $comments_count,
     ];
   }
-
 }
