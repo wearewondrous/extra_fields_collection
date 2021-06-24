@@ -109,7 +109,8 @@ class ViewUrl extends ExtraFieldDisplayBase implements ContainerFactoryPluginInt
 
     if (is_callable('parent::getSetting')) {
       $value = $settings = parent::getSetting($name);
-    } else {
+    } 
+    else {
       $default_settings = $this->defaultFormValues();
       $value = isset($default_settings[$name]) ? $default_settings[$name] : NULL;
     }
